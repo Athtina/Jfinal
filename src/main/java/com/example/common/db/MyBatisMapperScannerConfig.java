@@ -55,18 +55,4 @@ public class MyBatisMapperScannerConfig {
 		return mapperScannerConfigurer;
 	}
 
-	// @Bean
-	// public MapperScannerConfigurer mapperScannerConfigurer2() {
-	// MapperScannerConfigurer mapperScannerConfigurer = new
-	// MapperScannerConfigurer();
-	// mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory2");
-	// mapperScannerConfigurer.setBasePackage("com.nio.persistence.mapper");
-	// Properties properties = new Properties();
-	// properties.setProperty("mappers", "com.nio.util.MyMapper");
-	// properties.setProperty("notEmpty", "false");
-	// properties.setProperty("IDENTITY", "MYSQL");
-	// mapperScannerConfigurer.setProperties(properties);
-	// return mapperScannerConfigurer;
-	// }
-
 }
