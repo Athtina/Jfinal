@@ -93,14 +93,14 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource1());
 
-		// 分页插件
-		PageHelper pageHelper = new PageHelper();
-		Properties properties = new Properties();
-		properties.setProperty("dialect", "mysql");
-		properties.setProperty("reasonable", "false");
-		properties.setProperty("pageSizeZero", "true");
-		pageHelper.setProperties(properties);
-		bean.setPlugins(new Interceptor[] { pageHelper });
+//		// 分页插件
+//		PageHelper pageHelper = new PageHelper();
+//		Properties properties = new Properties();
+//		properties.setProperty("dialect", "mysql");
+//		properties.setProperty("reasonable", "false");
+//		properties.setProperty("pageSizeZero", "true");
+//		pageHelper.setProperties(properties);
+//		bean.setPlugins(new Interceptor[] { pageHelper });
 
 		try {
 			// 指定mapper xml目录
