@@ -1,5 +1,4 @@
 package com.example.common.db;
-
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import java.beans.PropertyVetoException;
 import javax.sql.DataSource;
@@ -7,6 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -20,10 +20,11 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
  * @Author yanli.zhang
  * @dateTime 2018/11/7 15:44
  */
+@Configuration
 public class MyBatisConfig implements TransactionManagementConfigurer {
 
-  @Value("${databaseRW.name}")
-  private String name;
+//    @Value("${databaseRW.name}")
+//    private String name;
 
   @Value("${databaseRW.driverClassName}")
   private String className;
@@ -43,8 +44,8 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
   @Value("${databaseRW.minPoolSize}")
   private int minPoolSize;
 
-  @Value("${databaseRW.initialPoolSize}")
-  private int initialPoolSize;
+//  @Value("${databaseRW.initialPoolSize}")
+//  private int initialPoolSize;
 
   @Value("${databaseRW.maxIdleTime}")
   private int maxIdleTime;
@@ -57,14 +58,14 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
   public DataSource dataSource1() throws PropertyVetoException {
 
     ComboPooledDataSource dataSource = new ComboPooledDataSource();
-    dataSource.setDataSourceName(name);
+//        dataSource.setDataSourceName(name);
     dataSource.setDriverClass(className);
     dataSource.setJdbcUrl(url);
     dataSource.setUser(username);
     dataSource.setPassword(password);
     dataSource.setMaxPoolSize(maxPoolSize);
     dataSource.setMinPoolSize(minPoolSize);
-    dataSource.setInitialPoolSize(initialPoolSize);
+//    dataSource.setInitialPoolSize(initialPoolSize);
     dataSource.setMaxIdleTime(maxIdleTime);
     return dataSource;
   }
@@ -74,10 +75,21 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
    * 设置这个分页插件：https://github.com/pagehelper/Mybatis-PageHelper； - 指定mapper文件的路径；
    */
   @Bean
+  @Primary
   public SqlSessionFactory sqlSessionFactory1() throws Exception {
 
     SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
     bean.setDataSource(dataSource1());
+    // 分页插件
+//    PageInterceptor pageInterceptor = new PageInterceptor();
+//    PageHelper pageHelper = new PageHelper();
+//    Properties properties = new Properties();
+//    properties.setProperty("dialect", "mysql");
+//    properties.setProperty("reasonable", "false");
+//    properties.setProperty("pageSizeZero", "true");
+//    pageHelper.setProperties(properties);
+//    pageInterceptor.setProperties(properties);
+//    bean.setPlugins(new Interceptor[]{pageInterceptor});
     try {
       // 指定mapper xml目录
       ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
