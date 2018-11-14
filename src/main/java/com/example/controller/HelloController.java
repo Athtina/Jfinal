@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.basic.Result;
 import com.example.common.annotation.SystemLog;
 import com.example.persistence.model.ChargingDayRecord;
 import com.example.persistence.service.ChargingDayRecordService;
@@ -15,8 +16,8 @@ public class HelloController {
   private ChargingDayRecordService cdrService;
   @SystemLog(message = "登录")
   @RequestMapping(value = "/login",method = RequestMethod.GET)
-  public String hello(){
-    return "hello spring!";
+  public Result hello(){
+    return Result.successResult("hello spring!");
   }
 
   @RequestMapping(value = "/hello",method = RequestMethod.GET)
