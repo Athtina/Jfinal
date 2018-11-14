@@ -58,14 +58,12 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
   public DataSource dataSource1() throws PropertyVetoException {
 
     ComboPooledDataSource dataSource = new ComboPooledDataSource();
-//        dataSource.setDataSourceName(name);
     dataSource.setDriverClass(className);
     dataSource.setJdbcUrl(url);
     dataSource.setUser(username);
     dataSource.setPassword(password);
     dataSource.setMaxPoolSize(maxPoolSize);
     dataSource.setMinPoolSize(minPoolSize);
-//    dataSource.setInitialPoolSize(initialPoolSize);
     dataSource.setMaxIdleTime(maxIdleTime);
     return dataSource;
   }
